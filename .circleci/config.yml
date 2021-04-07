@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   test:
     docker:
-      - image: atools/chrome-headless
+      - image: atools/chrome-headless:java11-node14-latest
 
     working_directory: ~/project
 
