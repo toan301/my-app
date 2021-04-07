@@ -13,7 +13,7 @@ jobs:
             - v1-dependencies-
       - run:
           name: install packages
-          command: npm install
+          command: yarn install
       - save_cache:
           paths:
             - node_modules
@@ -21,7 +21,7 @@ jobs:
       - run:
           name: Run Tests
           command: |
-            npm run test-e2e:local
+            yarn test-e2e:local
 
 workflows:
   wdio-e2e-workflow:
