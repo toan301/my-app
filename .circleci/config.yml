@@ -5,7 +5,7 @@ jobs:
     docker:
       - image: atools/chrome-headless:java11-node14-latest
 
-    working_directory: ~/project
+    working_directory: ~/repo
 
     steps:
       - checkout
@@ -16,7 +16,7 @@ jobs:
             - v1-dependencies-
       - run:
           name: install packages
-          command: yarn install --frozen-lockfile
+          command: npm ci
 
       - save_cache:
           paths:
@@ -25,7 +25,7 @@ jobs:
       - run:
           name: Run Tests
           command: |
-            yarn test-e2e:local
+            npm run test-e2e:local
 
 workflows:
   wdio-e2e-workflow:
