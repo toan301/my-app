@@ -4,6 +4,9 @@ jobs:
   test:
     docker:
       - image: circleci/node:12.2.0
+
+    working_directory: ~/project
+
     steps:
       - checkout
       - restore_cache:
@@ -13,7 +16,7 @@ jobs:
             - v1-dependencies-
       - run:
           name: install packages
-          command: yarn install
+          command: yarn ci
       - save_cache:
           paths:
             - node_modules
